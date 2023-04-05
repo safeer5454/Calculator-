@@ -3,7 +3,7 @@ import { calculation } from "./Calculation.js";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation";
 
-const main = async () => {
+export const main = async () => {
   const sleep = (ms = 2500) => new Promise((r) => setTimeout(r, ms));
 
   const welcome = async () => {
@@ -14,10 +14,10 @@ const main = async () => {
     rainbowTitle.stop();
     console.log(`
       ${chalk.bgYellowBright(
-        `${chalk.bold(
-          `NodeJS Command-Line Calculator: Simplifying Your Math Operations`
-        )}`
-      )}
+      `${chalk.bold(
+        `NodeJS Command-Line Calculator: Simplifying Your Math Operations`
+      )}`
+    )}
       1 : Select the operation from List
       2 : Enter 1st number
       3 : Enter 2nd number
@@ -25,6 +25,15 @@ const main = async () => {
   };
   console.clear();
   await welcome();
+  // debugger
+  const validateInput = (input: number) => {
+    debugger
+    console.log(typeof input,"=>",input);
+    if (isNaN(input)) {
+      return 'provide a number'
+    }
+    return true
+  }
   const input = await inquirer.prompt([
     {
       name: "operation",
@@ -36,11 +45,13 @@ const main = async () => {
       name: "first_num",
       message: "Enter first number =>",
       type: "number",
+      validate:(input: number) => isNaN(input) ? 'Provide a number' : true
     },
     {
       name: "second_num",
       message: "Enter second number =>",
       type: "number",
+      validate: (input: number) => isNaN(input) ? 'Provide a number' : true
     },
   ]);
   return calculation(input);

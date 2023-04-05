@@ -15,19 +15,19 @@ export const calculation = ({
   switch (operation) {
     case "Add":
       result = first_num + second_num;
-      log(chalk.blue.bgRed.bold("Sum") + "" + chalk.bold(result));
+      log(chalk.green.bold(`${first_num} + ${second_num} = ${result} `));
       break;
     case "Subtract":
       result = first_num - second_num;
-      log(chalk.blue.bgRed.bold("Subtract") + " " + chalk.bold(result));
+      log(chalk.green.bold(`${first_num} - ${second_num} = ${result} `));
       break;
     case "Multiply":
       result = first_num * second_num;
-      log(chalk.blue.bgRed.bold("Multiply") + " " + chalk.bold(result));
+      log(chalk.green.bold(`${first_num} * ${second_num} = ${result} `));
       break;
     case "Divide":
       result = first_num / second_num;
-      log(chalk.blue.bgRed.bold("Divide") + " " + chalk.bold(result));
+      log(chalk.green.bold(`${first_num} / ${second_num} = ${result} `));
       break;
     default:
       return 0;
