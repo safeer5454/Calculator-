@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 import { calculation } from "./Calculation.js";
 import chalk from "chalk";
